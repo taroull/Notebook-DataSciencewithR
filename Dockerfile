@@ -1,5 +1,5 @@
 ## Use a tag instead of "latest" for reproducibility
-FROM cpgonzal/docker-jupyter-r:latest
+FROM rocker/binder:latest
 
 ## Declares build arguments
 ARG NB_USER
@@ -14,6 +14,10 @@ COPY . ${HOME}
 ## clone of your repository
 ## COPY binder ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
+RUN apt-get update && apt-get install -y build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev && apt-get clean 
 
 ## Become normal user again
 USER ${NB_USER}
+
+## Run an install.R script, if it exists.
+RUN if [ -f install.R ]; then R --quiet -f install.R; fi
