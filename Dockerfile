@@ -1,5 +1,5 @@
 ## Use a tag instead of "latest" for reproducibility
-FROM rocker/binder:latest
+FROM jupyter/datascience-notebook:latest
 
 ## Declares build arguments
 ARG NB_USER
@@ -15,6 +15,7 @@ COPY . ${HOME}
 ## COPY binder ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
 RUN apt-get update && apt-get install -y build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev && apt-get clean 
+## RUN R --quiet -e "IRKernel::instalspec()"
 
 ## Become normal user again
 USER ${NB_USER}
