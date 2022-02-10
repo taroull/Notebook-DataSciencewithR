@@ -1,5 +1,4 @@
 # Notebook-DataSciencewithR  
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/taroull/Notebook-DataSciencewithR/HEAD)
 
 This notebook presents an illustrative example of data analysis by using the Data
 Science stack developed in Martín-Santana et al. (2019). In particular, the problem consists in studying
